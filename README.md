@@ -1,1 +1,11 @@
 # Crypto.host
+
+---
+
+**Idée :**
+
+- Graphique de trading (Style TradingView, hausse/baisse)
+- Page d'informations sur fees, blockchain, feer and gread -> Mempool
+- Page d'informations sur les cryptos (projet, évolution du prix, marketcap) -> coinmarketcap
+- Monitoring de wallet (Add ses cryptos, prix automatique, effet de levier, etc..) exemple : cryptomoonitor.io
+
