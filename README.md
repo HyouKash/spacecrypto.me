@@ -11,6 +11,7 @@
 - Stats (...)
 
 ➜ Serveur web + serveur DB
+
 ➜ Mise en place d'un RP -> limiter les ports
 ➜ HTTP -> HTTPS
 ➜ Cloudflare
