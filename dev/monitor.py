@@ -1,6 +1,12 @@
-import requests 
+import requests
+import keyboard
+import time
 
-crypto_list = ["LTC 0.606 3 147.05", "EGLD 0.6 2 319.520", "CHZ 388 2 0.37037", "MANA 18 3 3.3009"]
+import os
+
+
+def clear_console():
+    os.system('cls')
 
 def actu_wallet(crypto_list):
 	prout = []
@@ -45,6 +51,33 @@ def actu_wallet(crypto_list):
 		total_price_levarage += float(temp[6])
 		print(f"{temp[0]} | Price = {temp[1]} | Amount = {temp[2]} | with levarage of {temp[3]} | Sold = {temp[4]} | {temp[5][:4]} % | Sold with levarage = {temp[6]}") 
 	print(f"Total sold without levarage : {total_price} $\nTotal sold with levarage : {total_price_levarage} $")
-	
 
-actu_wallet(crypto_list)
+def add_crypto():
+    crypto = str(input("Quelle crypto voulez-vous ajouter ?\nVotre réponse : "))
+    amount = float(input("Combien possédez-vous de token ? : "))
+    laverage = int(input("Possédez-vous un levier, de combien, sinon mettre 1 ? : "))
+    purchased_price = float(input("à quel prix l'avez-vous acheté ? : "))
+    rep = str(crypto) + " " + str(amount) + " " + str(laverage) + " " + str(purchased_price)
+    return rep
+
+
+all_price = []
+
+while True:
+    print("Menu\nPress 1 if want to add crypto\nPress 2 if want to check you're wallet\n")
+    quest = str(input("Choice : "))
+    if quest == "1":
+        all_price.append(add_crypto())
+    elif quest == "2":
+        while True:
+            clear_console()
+            actu_wallet(all_price)
+            time.sleep(10)
+            if keyboard.is_pressed('e'):
+                print("Exit..")
+                break
+            else:
+                continue
+    else:
+        continue
+
