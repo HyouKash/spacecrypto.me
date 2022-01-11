@@ -1,4 +1,4 @@
-<form action="/dashboard" method="post" class="form-example">
+<form action="/add_crypto" method="post" class="form-example">
   <label for="crypto">Choose a crypto:</label>
 
   <select name="crypto" id="crypto-select">
@@ -36,16 +36,16 @@
          minlength="1" maxlength="10" size="10">
 
   <br> <br>
-  <label for="name">How much price do you buy them $ ?</label>
-
-  <input type="text" id="buy_price" name="price" required
-         minlength="1" maxlength="10" size="10">
-
-  <br> <br> 
   <label for="name">How much levarage ?</label>
 
-  <input type="text" id="amount_levarage" name="levarage" required
+  <input type="text" id="buy_price" name="levarage" required
          minlength="1" maxlength="2" size="10">
+
+  <br> <br> 
+  <label for="name">How much price do you buy them $ ?</label>
+
+  <input type="text" id="amount_levarage" name="price" required
+         minlength="1" maxlength="6" size="10">
 
   <div class="form-example">
       <input type="submit" value="Submit!">

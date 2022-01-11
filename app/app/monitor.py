@@ -17,7 +17,7 @@ def actu_wallet(crypto_list):
                         pourcentage_baisse = int(pourcentage_baisse) * int(levarage)
                 else:
                         pass
-                crypto_wallet_allinfo += crypto + " " + price + " " + amount + " " + levarage + " " + str(crypto_wallet) + " " + str(pourcentage_baisse) + " " + str(crypto_wallet * int(levarage))
+                crypto_wallet_allinfo += crypto + " " + price + " " + amount + " " + levarage + " " + str(crypto_wallet) + " " + str(pourcentage_baisse) + " " + str(crypto_wallet * int(levarage)) 
                 prout.append(crypto_wallet_allinfo)
         for final in prout:
                 temp = final.split(" ")
