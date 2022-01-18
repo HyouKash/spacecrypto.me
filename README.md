@@ -20,4 +20,4 @@
 
 ➜ Cloudflare
 
-➜ Déploiement automatisé + backup 
+➜ Déploiement automatisé + backup (ansible si possible sinon scripting)
