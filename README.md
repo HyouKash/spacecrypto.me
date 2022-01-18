@@ -19,3 +19,5 @@
 ➜ HTTP -> HTTPS
 
 ➜ Cloudflare
+
+➜ Déploiement automatisé + backup 
