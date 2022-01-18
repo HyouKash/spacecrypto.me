@@ -9,8 +9,8 @@ import base64
 
 lower = string.ascii_letters + string.digits
 
-@app.route("/add_crypto", methods=["GET", "POST"])
-def add_crypto():
+@app.route("/dashboard")
+def dash():
     user_id = request.cookies.get('user')
     if user_id:
         con = sqlite3.connect('app/dashboardV1.db')
@@ -18,18 +18,16 @@ def add_crypto():
         cur.execute(f'''SELECT * from Cryptos where ID = "{user_id}"''')
         data = cur.fetchall()[0]
         con.close()
-        if request.method == "POST":
-
-            req = request.form
-            
-            rep = f"{req.get('crypto')}" + "|" + f"{req.get('amount')}" + "|" + f"{req.get('levarage')}" + "|" + f"{req.get('price')}"
-            crypto = rep.split("|")[0]
-            con = sqlite3.connect('app/dashboardV1.db')
-            cur = con.cursor()
-            cur.execute(f'''UPDATE Cryptos SET {crypto} = "{rep}" WHERE ID = "{user_id}"''')
-            con.commit()
-            con.close()
-        return render_template("dashboard.html")
+        crypto_list = []
+        for k in range(len(data)):
+            if k == 0 or data[k] == None or data[k] == "":
+                pass
+            else:
+                crypto_list.append(data[k])
+        try:
+            return render_template('temp.html', len = len(actu_wallet(crypto_list)), wallet = actu_wallet(crypto_list))
+        except:
+            return render_template('dashboard.html')
     else:
         m = hashlib.sha3_512()
         cookie = "".join([random.choice(lower) for _ in  range(50)])
