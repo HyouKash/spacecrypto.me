@@ -18,6 +18,7 @@
 - Possibilité d'ajouter son wallet sur discord via webhook 🟢
 - Monitoring via panel admin 🟠
 - Déploiement de la solution via ansible 🟠
+- Création de service 🟠
 
 **Sécurisation de l'infrastructure :**
 
@@ -43,7 +44,7 @@
 
 **[18/01/22]** Ajout du wallet crypto via discord webhook + début de la page d'informations sur les fees
 
-**[01/02/22]** Ajout des nodes blockchain aux graphiques + création du déploiement de la solution via ansible
+**[01/02/22]** Ajout des nodes blockchain aux graphiques + création du déploiement de la solution via ansible, ainsi que commencement des services
 
 ---
 
