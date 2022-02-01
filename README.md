@@ -1,23 +1,51 @@
-# spacecrypto.me
+# spacecrypto.me 🪐
+
+---
+🟢 = Terminé
+🟠 = En cours
+🔴 = Pas commencé
+
+**Le site web :**
+
+- Graphique de trading (Style TradingView, hausse/baisse) 🟢
+- Page d'informations sur fees, blockchain, feer and gread -> Mempool (Sur le terrain) 🟠
+- Page d'informations sur les cryptos (projet, évolution du prix, marketcap) 🔴
+- Système d'alerte si prix hit x $ (choix vers discord ou telegram) 🟠
+- Monitoring de wallet (crypto, levier, price) exemple : cryptomoonitor.io 🟢
+- Possibilité d'ajouter son wallet sur discord via webhook 🟢
+- Monitoring via panel admin 🟠
+- Déploiement de la solution via ansible 🟠
+
+**Sécurisation de l'infrastructure :**
+
+➜ Sécuriser les ports 🔴
+
+➜ HTTP -> HTTPS 🔴
+
+➜ Cloudflare 🔴
+
+➜ Déploiement sécurisé de la solution via ansible 🟠
 
 ---
 
-**Idée :**
+**Roadmap : 🧾** 
 
-- Graphique de trading (Style TradingView, hausse/baisse)      🗹
-- Page d'informations sur fees, blockchain, feer and gread -> Mempool (Sur le terrain)
-- Page d'informations sur les cryptos (projet, évolution du prix, marketcap) -> coinmarketcap (à voir)
-- Système d'alerte si prix hit x $ (à faire)
-- Possibilité de l'ajouter sur discord (à faire)
-- Monitoring de wallet (Add ses cryptos, prix automatique, effet de levier, etc..) exemple : cryptomoonitor.io     🗹
-- Stats (...) (à voir)
+**[J/M/A]** + Actions..
 
-➜ Serveur web DB + serv pour RP OU mise en place cloudflare (tt les points qui suivent)
+**[04/01/22]** Choix du projet, mise en place de nos idées ainsi que des ressources nécessaires
 
-➜ Mise en place d'un RP -> limiter les ports
+**[11/01/22]** Création du serveur web avec Python Flask + début du monitoring de wallet crypto
 
-➜ HTTP -> HTTPS
+**[17/01/22]** Installation de graphana + influxdb, début de création du graphique avec prix Bitcoin + fin du wallet crypto
 
-➜ Cloudflare
+**[18/01/22]** Ajout du wallet crypto via discord webhook + début de la page d'informations sur les fees
 
-➜ Déploiement automatisé + backup (ansible si possible sinon scripting)
+**[01/02/22]** Ajout des nodes blockchain aux graphiques + création du déploiement de la solution via ansible
+
+---
+
+**A venir : ❗️**
+
+- Que du vert partout 🟢
+- Préparation de la documentation
+- Préparation de l'oral
