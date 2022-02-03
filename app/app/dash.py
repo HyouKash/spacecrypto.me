@@ -13,7 +13,7 @@ lower = string.ascii_letters + string.digits
 def dash():
     user_id = request.cookies.get('user')
     if user_id:
-        con = sqlite3.connect('app/dashboardV1.db')
+        con = sqlite3.connect('/home/web/spacecrypto/app/app/dashboardV1.db')
         cur = con.cursor()
         cur.execute(f'''SELECT * from Cryptos where ID = "{user_id}"''')
         data = cur.fetchall()[0]
