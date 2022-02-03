@@ -18,7 +18,7 @@
 - Possibilité d'ajouter son wallet sur discord via webhook 🟢
 - Monitoring via panel admin 🟠
 - Déploiement de la solution via ansible 🟠
-- Création de service 🟠
+- Création de service 🟠 (NE PAS OUBLIER D'INCLURE : export PYTHONPATH=$PYTHONPATH:`pwd`)
 
 **Sécurisation de l'infrastructure :**
 
