@@ -59,6 +59,9 @@ def getunconfirmedtx():
 
     write_api.write(bucket, org, point)
 
-getblockcount()
-getdifficulty()
-getunconfirmedtx()
+while True:
+    getblockcount()
+    getdifficulty()
+    getunconfirmedtx()
+    time.sleep(20)
+
