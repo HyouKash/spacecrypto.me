@@ -16,7 +16,7 @@ def getblockcount():
 
     print(output)
 
-    client = InfluxDBClient(url="http://139.59.147.33:8086", token=token, org=org)
+    client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
     point = Point("BTC") \
         .field("BlockCount", int(output)) \
         .time(datetime.utcnow(), WritePrecision.NS)
@@ -33,7 +33,7 @@ def getdifficulty():
 
     print(output)
 
-    client = InfluxDBClient(url="http://139.59.147.33:8086", token=token, org=org)
+    client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
     point = Point("BTC") \
         .field("Difficulty", int(output.split(".")[0])) \
         .time(datetime.utcnow(), WritePrecision.NS)
@@ -50,7 +50,7 @@ def getunconfirmedtx():
 
     print(output)
 
-    client = InfluxDBClient(url="http://139.59.147.33:8086", token=token, org=org)
+    client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
     point = Point("BTC") \
         .field("Uncomfirmedtx", int(output)) \
         .time(datetime.utcnow(), WritePrecision.NS)

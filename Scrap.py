@@ -13,7 +13,7 @@ bucket = "Crypto"
 
 
 def func_logPrice(coin, price, kind):
-    client = InfluxDBClient(url="http://139.59.147.33:8086", token=token, org=org)
+    client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
     point = Point("BTC") \
         .field("Price", price) \
         .time(datetime.utcnow(), WritePrecision.NS)
