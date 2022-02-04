@@ -128,7 +128,7 @@
                {
                   "datasource":{
                      "type":"influxdb",
-                     "uid":"7YpB1n-7z"
+                     "uid":"DBUID"
                   },
                   "query":"from(bucket:\"Crypto\")\n  |> range(start: -1d)\n  |> filter(fn: (r) =>\n    r._measurement == \"BTC\")\n  |> filter(fn:(r) => r._field == \"Price\" )\n  |> yield()",
                   "refId":"A"
@@ -141,7 +141,7 @@
             "fieldConfig":{
                "defaults":{
                   "color":{
-                     "mde":"thresholds"
+                     "me":"thresholds"
                   },
                   "mappings":[
                      
@@ -191,7 +191,7 @@
                {
                   "datasource":{
                      "type":"influxdb",
-                     "uid":"7YpB1n-7z"
+                     "uid":"DBUID"
                   },
                   "hide":false,
                   "query":"from(bucket:\"Crypto\")\n  |> range(start: -1d)\n  |> filter(fn: (r) =>\n    r._measurement == \"BTC\"\n  )\n  |> filter(fn:(r) => r._field == \"Price\" )\n  |> yield()",
@@ -270,7 +270,7 @@
                {
                   "datasource":{
                      "type":"influxdb",
-                     "uid":"7YpB1n-7z"
+                     "uid":"DBUID"
                   },
                   "query":"from(bucket:\"Crypto\")\n  |> range(start: -1d)\n  |> filter(fn: (r) => r._measurement == \"BTC\")\n  |> filter(fn:(r) => r._field == \"BlockCount\" )\n  |> yield()",
                   "refId":"A"
@@ -331,7 +331,7 @@
                {
                   "datasource":{
                      "type":"influxdb",
-                     "uid":"7YpB1n-7z"
+                     "uid":"DBUID"
                   },
                   "datasoure":{
                      "type":"influxdb",
@@ -368,17 +368,12 @@
       "timezone":"",
       "title":"Bitcoin",
       "uid":"K-ONML07k",
-      "version":2,
+      "version":1,
       "weekStart":""
    },
    "overwrite":true,
    "inputs":[
-      {
-         "name":"DS_INFLUXDB",
-         "type":"datasource",
-         "pluginId":"influxdb",
-         "value":"7YpB1n-7z"
-      }
+      
    ],
    "folderId":0
 }
