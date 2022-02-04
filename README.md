@@ -17,8 +17,8 @@
 - Monitoring de wallet (crypto, levier, price) exemple : cryptomoonitor.io 🟢
 - Possibilité d'ajouter son wallet sur discord via webhook 🟢
 - Monitoring via panel admin 🟠
-- Déploiement de la solution via ansible 🟠
-- Création de service 🟠 (NE PAS OUBLIER D'INCLURE : export PYTHONPATH=$PYTHONPATH:`pwd`)
+- Déploiement de la solution via ansible 🟢
+- Création de service 🟢 
 
 **Sécurisation de l'infrastructure :**
 
@@ -28,7 +28,7 @@
 
 ➜ Cloudflare 🔴
 
-➜ Déploiement sécurisé de la solution via ansible 🟠
+➜ Déploiement sécurisé de la solution via ansible 🟠(gérer perm)
 
 ---
 
