@@ -49,11 +49,11 @@
 
     - name: Docker command
       ansible.builtin.shell:
-        cmd: cd /home/web/spacecrypto.me/influx-dokcer/ && docker-compose pull && docker-compose up -d
+        cmd: cd /home/web/spacecrypto/influx-docker/ && docker-compose pull && docker-compose up -d
 
     - name: docker command 2
       ansible.builtin.shell:
-        cmd: cd /home/web/spacecrypto.me/influx-dokcer/ && docker-compose stop
+        cmd: cd /home/web/spacecrypto/influx-docker/ && docker-compose stop
 
     - name: Création du Flask Service
       ansible.builtin.shell:
@@ -75,7 +75,7 @@
 
     - name: Création du docker service
       ansible.builtin.shell:
-        cmd: echo "[Unit]\nDescription=Influx Docker\nAfter=network-online.target\n\n[Service]\nType=simple\n\nWorkingDirectory=/home/web/spacecrypto.me/influx-dokcer\nExecStart=sudo docker-compose start\n\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/influx-docker.service
+        cmd: echo "[Unit]\nDescription=Influx Docker\nAfter=network-online.target\n\n[Service]\nType=simple\n\nWorkingDirectory=/home/web/spacecrypto/influx-docker\nExecStart=sudo docker-compose start\n\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/influx-docker.service
 
     - name: Lancement du docker service 
       ansible.builtin.service:
