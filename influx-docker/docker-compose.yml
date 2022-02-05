@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=Tom03042003
+      - DOCKER_INFLUXDB_INIT_ORG=my-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=Crypto
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=CI8YH1fun60_u4c6Xzk941Od6q2ZaM4qGv9_5olry2oYoUk0Uj8rpo-OSXWgimO6KM7AGRot9wrUpvTTBjjcoA==
+
+volumes:
+    influxdb-storage:

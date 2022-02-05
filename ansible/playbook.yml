@@ -1,0 +1,112 @@
+---
+
+- name: Installation des serveurs web
+  hosts: web
+  remote_user: root
+  
+  tasks:
+
+    - name: Installation de packets
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - git
+        - neovim
+        - zsh
+        - jq
+        - python3-pip
+        - docker.io
+        - docker-compose
+        - apt-transport-https
+        - software-properties-common
+        - wget
+
+    - name: Création d'un user
+      user: name=web comment="web user" shell=/usr/bin/zsh 
+    - name: Ajout clé SSH
+      authorized_key: user=web key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Création dossier
+      become: yes
+      file: path=/home/web/spacecrypto state=directory owner=web
+    - name: Install python module
+      pip:
+        name: 
+          - requests
+          - influxdb
+          - datetime
+          - flask
+          - discord_webhook
+          - influxdb_client
+
+    - name: Clonage du repo
+      ansible.builtin.git:
+        repo: https://github.com/HyouKash/spacecrypto.me.git
+        dest: /home/web/spacecrypto
+
+    - name: Changement de droit
+      ansible.builtin.shell:
+        cmd: chown -R web:web /home/web/spacecrypto
+
+    - name: Docker command
+      ansible.builtin.shell:
+        cmd: cd /home/web/spacecrypto.me/influx-dokcer/ && docker-compose pull && docker-compose up -d
+
+    - name: docker command 2
+      ansible.builtin.shell:
+        cmd: cd /home/web/spacecrypto.me/influx-dokcer/ && docker-compose stop
+
+    - name: Création du Flask Service
+      ansible.builtin.shell:
+        cmd: echo "[Unit]\nDescription=Start Flask server\nAfter=network-online.target\n\n[Service]\nType=simple\n\nExecStart=/usr/bin/python3 home/web/spacecrypto/app/run.py\nEnvironment=PYTHONPATH=/home/web/spacecrypto/app/app\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/flask.service
+      
+    - name: Lancement du Flask Service
+      ansible.builtin.service:
+        name: flask
+        state: started
+
+    - name: Création du Price service
+      ansible.builtin.shell:
+        cmd: echo "[Unit]\nDescription=Scrao Bitcoin Price\nAfter=network-online.target\n\n[Service]\nType=simple\n\nExecStart=/usr/bin/python3 /home/web/spacecrypto/Scrap.py\n\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/price.service
+
+    - name: Lancement du price service
+      ansible.builtin.service:
+        name: price
+        state: started
+
+    - name: Création du docker service
+      ansible.builtin.shell:
+        cmd: echo "[Unit]\nDescription=Influx Docker\nAfter=network-online.target\n\n[Service]\nType=simple\n\nWorkingDirectory=/home/web/spacecrypto.me/influx-dokcer\nExecStart=sudo docker-compose start\n\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/influx-docker.service
+
+    - name: Lancement du docker service 
+      ansible.builtin.service:
+        name: influx-docker
+        state: started
+
+    - name: Installation de Grafana
+      ansible.builtin.shell:
+        cmd: wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add - && echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+    - name: Update et upgrade apt packages
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+ 
+    - name: Installation de packets
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - grafana
+   
+    - name: Start grafana service
+      ansible.builtin.service:
+        name: grafana-server
+        state: started
+
+    - name: Change grafana password
+      ansible.builtin.shell:
+        cmd: sleep 10 && grafana-cli --homepath "/usr/share/grafana" admin reset-admin-password Tom03042003
+
+    - name: Connect DB and Import Dashboard
+      ansible.builtin.shell:
+        cmd: cd /home/web/spacecrypto && bash /home/web/spacecrypto/setup.sh
+...
