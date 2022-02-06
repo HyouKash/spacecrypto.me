@@ -55,10 +55,36 @@
 
 # Documentation
 
+**Liste de tout ce qui marche 📝:**
+
+- Site web utilisable
+- Monitoring de wallet via API
+- Monitoring de wallet via discord_webhook
+- Monitoring du serveur web via Grafana
+- Système d'alerte via Grafana
+- Solution déployable grâce à Ansible
+- Site web sécurisé par CloudFlare
+- Fail2ban sur l'accès SSH du serveur web 
+- Serveur web sécurisé
+- 4 services : Prix du Bitcoin, Serveur web, BitcoinCore et docker
+- Database fonctionnelle 
+- HTTPS fonctionel
+
+***Informations complémentaires :***
+
+Le service **price** s'occupe de récupérer le prix du bitcoin afin de le mettre dans influx-db puis de l'afficher directement dans un graphique via Grafana.
+
+Le service **BitcoinCore** sert à récupérer directement les blocks de la Blockchain afin de directement communiquer avec eux et avoir les informations nécessaires depuis le début de la blockchain.
+
+Le service **docker** s'occupe de run influx.db
+
+---
+
 **Prérequis ⚙️ :** 
-- Machine : 1 (2 si votre machine personnelle ne possède pas Linux)
+- Machine : 1
 - RAM / CPU : 2048 / 1
 - OS : Ubuntu 20.04
+- Stockage : 20GB
 
 **Comment installer la solution 🛠 :**
 
@@ -105,16 +131,9 @@ ansible-playbook -i hosts playbook.yml
 
 Voilà vous avez maintenant la solution utilisable à l'adresse : https://localhost:5000
 
-Les différentes routes sont :
-
-- /
-- /dashboard
-- /add_crypto
-- ADD AUTRES ROUTES
-
 **Monitoring 👨🏼‍💻 :**
 
-Au niveau du monitoring du serveur web, il se fait via le panel admin de Grafana sans que vous n'ayez rien à toucher, profitez de la simplicité.
+Au niveau du monitoring, il se fait via le panel admin de Grafana sans que vous n'ayez rien à toucher, profitez de la simplicité.
 
 Login : 
 
@@ -130,18 +149,18 @@ Vous devez ajouter une nouvelle machine qui sera un espace dédié au stockage d
 Je propose pour le partage des données le protocole **NFS** : 
 C'est un protocole très simple permettant d'échanger des fichiers entre deux machines.
 
-**Veuillez procéder comme ceci 👨‍🏫 :**
+Veuillez procéder comme ceci 👨‍🏫 : 
 
 Comme dit plus haut installe le serveur de backup avant tout.
 
-- I. Ajout de disque
-- II. Partitioning
+- 1. Ajout de disque
+- 2. Partitioning
 - Partitionner le disque à l'aide de LVM
 - Formater la partition
 - Monter la partition
-- III. Install du serveur NFS + conf (N'oubliez pas de démarrer le service)
-- IV. Faire de même cette fois ci sur le serveur web
-- V. Faites un service qui s'occupera de faire les sauvegardes de manière  régulière et de les envoyer sur votre backup
+- 3. Install du serveur NFS + conf (N'oubliez pas de démarrer le service)
+- 4. Faire de même cette fois ci sur le serveur web
+- 5. Faites un service qui s'occupera de faire les sauvegardes de manière  régulière et de les envoyer sur votre backup
 
 Je vais pas tout faire pour vous donc tout est expliqué dans les grandes lignes, vous avez un tuto efficace par it4 ici 👇🏻
 
