@@ -53,8 +53,8 @@
 
 # Documentation
 
-**Prérequis ⚙️ :** 1 machine, avec X Go de RAM et X CPU, avec tel OS
-- Machine : 1
+**Prérequis ⚙️ :** 
+- Machine : 1 (2 si votre machine personnelle ne possède pas Linux)
 - RAM / CPU : 2048 / 1
 - OS : Ubuntu 20.04
 
