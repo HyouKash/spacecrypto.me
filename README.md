@@ -105,7 +105,7 @@ Voilà vous avez maintenant la solution utilisable à l'adresse : https://localh
 
 **Monitoring 👨🏼‍💻 :**
 
-Au niveau du monitoring, il se fait via le panel admin de Grafana sans que vous n'ayez rien à toucher, profitez de la simplicité.
+Au niveau du monitoring du serveur web, il se fait via le panel admin de Grafana sans que vous n'ayez rien à toucher, profitez de la simplicité.
 
 Login : 
 
@@ -121,7 +121,7 @@ Vous devez ajouter une nouvelle machine qui sera un espace dédié au stockage d
 Je propose pour le partage des données le protocole **NFS** : 
 C'est un protocole très simple permettant d'échanger des fichiers entre deux machines.
 
-Veuillez procéder comme ceci 👨‍🏫 : 
+**Veuillez procéder comme ceci 👨‍🏫 :**
 
 Comme dit plus haut installe le serveur de backup avant tout.
 
