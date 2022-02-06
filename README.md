@@ -10,21 +10,21 @@
 - Graphique de trading (Style TradingView, hausse/baisse) 🟢
 - Page d'informations sur fees, blockchain, feer and gread -> Mempool (Sur le terrain) 🟠
 - Page d'informations sur les cryptos (projet, évolution du prix, marketcap) 🔴
-- Système d'alerte si prix hit x $ (choix vers discord ou telegram) 🟠
+- Système d'alerte si prix hit x $ (choix vers discord ou telegram) 🟢
 - Monitoring de wallet (crypto, levier, price) exemple : cryptomoonitor.io 🟢
 - Possibilité d'ajouter son wallet sur discord via webhook 🟢
-- Monitoring via panel admin 🟠
-- Déploiement de la solution via ansible 🟠
+- Monitoring via panel admin Grafana 🟢
+- Déploiement de la solution via ansible 🟢
 
 **Sécurisation de l'infrastructure :**
 
-➜ Sécuriser les ports 🔴
+➜ Sécuriser les ports 🟢
 
 ➜ HTTP -> HTTPS 🔴
 
 ➜ Cloudflare 🔴
 
-➜ Déploiement sécurisé de la solution via ansible 🟠
+➜ Déploiement sécurisé de la solution via ansible 🟢
 
 ---
 
