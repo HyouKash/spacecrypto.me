@@ -108,5 +108,5 @@
 
     - name: Connect DB and Import Dashboard
       ansible.builtin.shell:
-        cmd: cd /home/web && mkdir .bitcoin && mv spacecrypto/bitcoin.conf .bitcoin/ && wget https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz && tar -xf bitcoin-22.0-x86_64-linux-gnu.tar.gz && sudo -u web /home/web/bitcoin-22.0/bin/bitcoind -daemon && chown -R web:web /home/web
+        cmd: cd /home/web && mkdir .bitcoin && sudo -u web mv spacecrypto/bitcoin.conf .bitcoin/ && sudo -u web wget https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz && sudo -u web tar -xf bitcoin-22.0-x86_64-linux-gnu.tar.gz && sudo -u web /home/web/bitcoin-22.0/bin/bitcoind -daemon && chown -R web:web /home/web
 ...
