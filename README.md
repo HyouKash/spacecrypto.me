@@ -28,7 +28,7 @@
 
 ➜ Cloudflare 🔴
 
-➜ Déploiement sécurisé de la solution via ansible 🟠(gérer perm)
+➜ Déploiement sécurisé de la solution via ansible 🟢
 
 ---
 
