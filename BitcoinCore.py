@@ -11,54 +11,61 @@ bucket = "Crypto"
 
 
 def getblockcount():
-    subproces = subprocess.Popen("/home/web/bitcoin-22.0/bin/bitcoin-cli getblockcount", shell=True, stdout=subprocess.PIPE)
+    try:
+        subproces = subprocess.Popen("/home/web/bitcoin-22.0/bin/bitcoin-cli getblockcount", shell=True, stdout=subprocess.PIPE)
 
-    output = subproces.stdout.read().decode().strip()
+        output = subproces.stdout.read().decode().strip()
 
-    print(output)
+        print(output)
 
-    client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
-    point = Point("BTC") \
-        .field("BlockCount", int(output)) \
-        .time(datetime.utcnow(), WritePrecision.NS)
+        client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
+        point = Point("BTC") \
+            .field("BlockCount", int(output)) \
+            .time(datetime.utcnow(), WritePrecision.NS)
 
-    write_api = client.write_api(write_options=SYNCHRONOUS)
+        write_api = client.write_api(write_options=SYNCHRONOUS)
 
-    write_api.write(bucket, org, point)
-
+        write_api.write(bucket, org, point)
+    except:
+        pass
 
 def getdifficulty():
-    subproces = subprocess.Popen("/home/web/bitcoin-22.0/bin/bitcoin-cli  getdifficulty", shell=True, stdout=subprocess.PIPE)
+    try:
+        subproces = subprocess.Popen("/home/web/bitcoin-22.0/bin/bitcoin-cli  getdifficulty", shell=True, stdout=subprocess.PIPE)
 
-    output = subproces.stdout.read().decode().strip()
+        output = subproces.stdout.read().decode().strip()
 
-    print(output)
+        print(output)
 
-    client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
-    point = Point("BTC") \
-        .field("Difficulty", int(output.split(".")[0])) \
-        .time(datetime.utcnow(), WritePrecision.NS)
+        client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
+        point = Point("BTC") \
+            .field("Difficulty", int(output.split(".")[0])) \
+            .time(datetime.utcnow(), WritePrecision.NS)
 
-    write_api = client.write_api(write_options=SYNCHRONOUS)
+        write_api = client.write_api(write_options=SYNCHRONOUS)
 
-    write_api.write(bucket, org, point)
-
+        write_api.write(bucket, org, point)
+    except:
+        pass
 
 def getunconfirmedtx():
-    subproces = subprocess.Popen('/home/web/bitcoin-22.0/bin/bitcoin-cli  getmininginfo | jq -r ".pooledtx"', shell=True, stdout=subprocess.PIPE)
+    try:
+        subproces = subprocess.Popen('/home/web/bitcoin-22.0/bin/bitcoin-cli  getmininginfo | jq -r ".pooledtx"', shell=True, stdout=subprocess.PIPE)
 
-    output = subproces.stdout.read().decode().strip()
+        output = subproces.stdout.read().decode().strip()
 
-    print(output)
+        print(output)
 
-    client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
-    point = Point("BTC") \
-        .field("Uncomfirmedtx", int(output)) \
-        .time(datetime.utcnow(), WritePrecision.NS)
+        client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
+        point = Point("BTC") \
+            .field("Uncomfirmedtx", int(output)) \
+            .time(datetime.utcnow(), WritePrecision.NS)
 
-    write_api = client.write_api(write_options=SYNCHRONOUS)
+        write_api = client.write_api(write_options=SYNCHRONOUS)
 
-    write_api.write(bucket, org, point)
+        write_api.write(bucket, org, point)
+    except:
+        pass
 
 while True:
     getblockcount()
