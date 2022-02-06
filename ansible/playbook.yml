@@ -9,16 +9,12 @@
     - name: Installation de packets
       apt: name={{ item }} update_cache=yes state=latest
       with_items:
-        - git
         - neovim
-        - zsh
         - jq
         - python3-pip
         - docker.io
         - docker-compose
         - apt-transport-https
-        - software-properties-common
-        - wget
 
     - name: Création d'un user
       user: name=web comment="web user" shell=/usr/bin/zsh 
@@ -109,4 +105,15 @@
     - name: Connect DB and Import Dashboard
       ansible.builtin.shell:
         cmd: cd /home/web/spacecrypto && bash /home/web/spacecrypto/setup.sh
+
+    - name: Install BitcoinCore
+      community.general.snap:
+       name:
+        - bitcoin-core
+
+
+   - name: Création du docker service
+      ansible.builtin.shell:
+        cmd: echo "daemon=1\ndbcache=100\nmaxorphantx=10\nmaxmempool=50\nprune=5000\nmaxconnections=40" > /root/snap/bitcoin-core/common/.bitcoin/bitcoin.conf
+
 ...
