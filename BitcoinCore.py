@@ -11,7 +11,7 @@ bucket = "Crypto"
 
 
 def getblockcount():
-    subproces = subprocess.Popen("bitcoin-cli getblockcount", shell=True, stdout=subprocess.PIPE)
+    subproces = subprocess.Popen("/home/web/bitcoin-22.0/bin/bitcoin-cli getblockcount", shell=True, stdout=subprocess.PIPE)
 
     output = subproces.stdout.read().decode().strip()
 
@@ -28,7 +28,7 @@ def getblockcount():
 
 
 def getdifficulty():
-    subproces = subprocess.Popen("bitcoin-cli getdifficulty", shell=True, stdout=subprocess.PIPE)
+    subproces = subprocess.Popen("/home/web/bitcoin-22.0/bin/bitcoin-cli  getdifficulty", shell=True, stdout=subprocess.PIPE)
 
     output = subproces.stdout.read().decode().strip()
 
@@ -45,7 +45,7 @@ def getdifficulty():
 
 
 def getunconfirmedtx():
-    subproces = subprocess.Popen('bitcoin-cli getmininginfo | jq -r ".pooledtx"', shell=True, stdout=subprocess.PIPE)
+    subproces = subprocess.Popen('/home/web/bitcoin-22.0/bin/bitcoin-cli  getmininginfo | jq -r ".pooledtx"', shell=True, stdout=subprocess.PIPE)
 
     output = subproces.stdout.read().decode().strip()
 

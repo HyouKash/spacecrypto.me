@@ -51,6 +51,29 @@
       ansible.builtin.shell:
         cmd: cd /home/web/spacecrypto/influx-docker/ && docker-compose stop
 
+    - name: Download BitcoinCore
+      ansible.builtin.shell:
+        cmd: cd /home/web && sudo -u web mkdir .bitcoin && sudo -u web mv spacecrypto/bitcoin.conf .bitcoin/ && sudo -u web wget https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz && sudo -u web tar -xf bitcoin-22.0-x86_64-linux-gnu.tar.gz && chown -R web:web /home/web
+
+    - name: Création du Service BitcoinCore
+      ansible.builtin.shell:
+        cmd: echo "[Unit]\nDescription=Start BitcoinCore\nAfter=network-online.target\n\n[Service]\nType=simple\n\nUser=web\nExecStart=/home/web/bitcoin-22.0/bin/bitcoind\nEnvironment=PYTHONPATH=/home/web/spacecrypto/app/app\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/bitcoincore.service
+      
+    - name: Lancement du Service BitcoinCore
+      ansible.builtin.service:
+        name: bitcoincore
+        state: started
+        
+        
+    - name: Création du Service BitcoinCore Scrap
+      ansible.builtin.shell:
+        cmd: echo "[Unit]\nDescription=Start BitcoinCore Scrap\nAfter=network-online.target\n\n[Service]\nType=simple\n\nUser=web\nExecStart=/usr/bin/python3 /home/web/spacecrypto/BitcoinCore.py\nEnvironment=PYTHONPATH=/home/web/spacecrypto/app/app\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/bitcoinscrap.service
+      
+    - name: Lancement du Service BitcoinCore Scrap
+      ansible.builtin.service:
+        name: bitcoinscrap
+        state: started
+
     - name: Création du Flask Service
       ansible.builtin.shell:
         cmd: echo "[Unit]\nDescription=Start Flask server\nAfter=network-online.target\n\n[Service]\nType=simple\n\nExecStart=/usr/bin/python3 home/web/spacecrypto/app/run.py\nEnvironment=PYTHONPATH=/home/web/spacecrypto/app/app\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/flask.service
@@ -106,7 +129,4 @@
       ansible.builtin.shell:
         cmd: cd /home/web/spacecrypto && bash /home/web/spacecrypto/setup.sh
 
-    - name: Connect DB and Import Dashboard
-      ansible.builtin.shell:
-        cmd: cd /home/web && mkdir .bitcoin && sudo -u web mv spacecrypto/bitcoin.conf .bitcoin/ && sudo -u web wget https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz && sudo -u web tar -xf bitcoin-22.0-x86_64-linux-gnu.tar.gz && sudo -u web /home/web/bitcoin-22.0/bin/bitcoind -daemon && chown -R web:web /home/web
 ...
