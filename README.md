@@ -2,7 +2,9 @@
 
 ---
 🟢 = Terminé
+
 🟠 = En cours
+
 🔴 = Pas commencé
 
 **Le site web :**
