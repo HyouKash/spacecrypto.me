@@ -34,6 +34,7 @@
           - flask
           - discord_webhook
           - influxdb_client
+          - pyopenssl
 
     - name: Clonage du repo
       ansible.builtin.git:
