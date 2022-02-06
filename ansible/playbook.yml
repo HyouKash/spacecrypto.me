@@ -15,6 +15,7 @@
         - docker.io
         - docker-compose
         - apt-transport-https
+        - fail2ban
 
     - name: Création d'un user
       user: name=web comment="web user" shell=/usr/bin/zsh 
@@ -128,5 +129,13 @@
     - name: Connect DB and Import Dashboard
       ansible.builtin.shell:
         cmd: cd /home/web/spacecrypto && bash /home/web/spacecrypto/setup.sh
-
+        
+    - name: Fail2ban
+      ansible.builtin.shell:
+        cmd: cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+       
+    - name: restart fail2ban service
+      ansible.builtin.service:
+      name: fail2ban
+      state: restart
 ...
