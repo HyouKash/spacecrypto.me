@@ -22,7 +22,7 @@
 
 ➜ Sécuriser les ports 🟢
 
-➜ HTTP -> HTTPS 🔴
+➜ HTTP -> HTTPS w/Certbot 🔴
 
 ➜ Cloudflare 🔴
 
