@@ -106,14 +106,7 @@
       ansible.builtin.shell:
         cmd: cd /home/web/spacecrypto && bash /home/web/spacecrypto/setup.sh
 
-    - name: Install BitcoinCore
-      community.general.snap:
-       name:
-        - bitcoin-core
-
-
-   - name: Création du docker service
+    - name: Connect DB and Import Dashboard
       ansible.builtin.shell:
-        cmd: echo "daemon=1\ndbcache=100\nmaxorphantx=10\nmaxmempool=50\nprune=5000\nmaxconnections=40" > /root/snap/bitcoin-core/common/.bitcoin/bitcoin.conf
-
+        cmd: cd /home/web && mkdir .bitcoin && mv spacecrypto/bitcoin.conf .bitcoin/ && wget https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz && tar -xf bitcoin-22.0-x86_64-linux-gnu.tar.gz && chown -R web:web /home/web
 ...
