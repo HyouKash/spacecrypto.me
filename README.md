@@ -31,6 +31,7 @@
 ➜ Déploiement sécurisé de la solution via ansible 🟢
 
 ➜ Fail2ban 🟢
+
 ---
 
 **Roadmap : 🧾** 
