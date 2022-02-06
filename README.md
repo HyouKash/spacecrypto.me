@@ -103,6 +103,13 @@ ansible-playbook -i hosts playbook.yml
 
 Voilà vous avez maintenant la solution utilisable à l'adresse : https://localhost:5000
 
+Les différentes routes sont :
+
+- /
+- /dashboard
+- /add_crypto
+- ADD AUTRES ROUTES
+
 **Monitoring 👨🏼‍💻 :**
 
 Au niveau du monitoring du serveur web, il se fait via le panel admin de Grafana sans que vous n'ayez rien à toucher, profitez de la simplicité.
