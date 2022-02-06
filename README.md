@@ -22,9 +22,9 @@
 
 **Sécurisation de l'infrastructure :**
 
-➜ Sécuriser les ports 🔴
+➜ Sécuriser les ports 🟢
 
-➜ HTTP -> HTTPS 🔴
+➜ HTTP -> HTTPS 🟢
 
 ➜ Cloudflare 🔴
 
