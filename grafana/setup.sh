@@ -9,3 +9,4 @@ curl -X POST --insecure -H "Authorization: Bearer ${key}" -H "Content-Type: appl
 uid=$(curl -s -X POST --insecure -H "Authorization: Bearer ${key}" -H "Content-Type: application/json" -d @baseprom.json http://localhost:3000/api/datasources | jq -r '.datasource.uid')
 sed -i "s/UID/${uid}/g" finalprom.json
 curl -s -X PUT --insecure -H "Authorization: Bearer ${key}" -H "Content-Type: application/json" -d @finalprom.json  http://localhost:3000/api/datasources/2
+curl -X POST --insecure -H "Authorization: Bearer ${key}" -H "Content-Type: application/json" -d @Prometheus.json http://localhost:3000/api/dashboards/db
