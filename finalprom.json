@@ -1,0 +1,1 @@
+{"id":2,"uid":"UID","orgId":1,"name":"Prometheus","type":"prometheus","typeLogoUrl":"","access":"proxy","url":"http://localhost:9090","password":"","user":"","database":"","basicAuth":false,"basicAuthUser":"","basicAuthPassword":"","withCredentials":false,"isDefault":false,"jsonData":{"httpMethod":"POST","manageAlerts":false},"secureJsonFields":{},"version":1,"readOnly":false}
