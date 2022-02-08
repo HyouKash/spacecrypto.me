@@ -121,7 +121,7 @@
 
     - name: Change grafana password
       ansible.builtin.shell:
-        cmd: grafana-cli --homepath "/usr/share/grafana" admin reset-admin-password Tom03042003
+        cmd: sleep 5 && grafana-cli --homepath "/usr/share/grafana" admin reset-admin-password Tom03042003
 
     - name: Connect DB and Import Dashboard
       ansible.builtin.shell:
