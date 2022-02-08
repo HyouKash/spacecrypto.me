@@ -20,7 +20,7 @@
 
 **Sécurisation de l'infrastructure :**
 
-➜ Sécuriser les ports 🟢
+➜ Sécuriser les ports (iptable) 🟢
 
 ➜ HTTP -> HTTPS w/Certbot 🔴
 
