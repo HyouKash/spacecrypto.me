@@ -6,7 +6,9 @@ Vidéo : Coming Soon
 
 A l'écrit :
 
-1. Installer la machine et avoir un accès ssh root sans mot de passe
+1. Installer la machine avec les [Prérequis](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Pr%C3%A9requis.md)
+
+3. 
 
 Si besoin d'aide : https://askubuntu.com/questions/115151/how-to-set-up-passwordless-ssh-access-for-root-user#:~:text=On%20the%20client%20(where%20you%20ssh%20FROM)&text=When%20you%20are%20prompted%20for,to%20ssh%20into%20the%20server.
 
