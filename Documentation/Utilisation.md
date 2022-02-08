@@ -9,6 +9,8 @@
 
 3️⃣ Pour se rendre sur le panel influxdb : https://localhost:8086
 
+---
+
 ➔ Suite : [Monitoring](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Monitoring.md)
 
 ➔ Informations : [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
