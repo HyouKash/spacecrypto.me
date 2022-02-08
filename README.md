@@ -54,6 +54,14 @@
 
 # Documentation
 
+**Sommaire :**
+
+[1. Prérequis](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Pr%C3%A9requis.md)
+[2. Installation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Installation.md)
+[3. Utilisation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Utilisation.md)
+[4. Monitoring](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Monitoring.md)
+[5. Backup](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Backup.md)
+
 **Liste de tout ce qui marche 📝:**
 
 - Site web utilisable
@@ -76,91 +84,3 @@ Le service **price** s'occupe de récupérer le prix du bitcoin afin de le mettr
 Le service **BitcoinCore** sert à récupérer directement les blocks de la Blockchain afin de directement communiquer avec eux et avoir les informations nécessaires depuis le début de la blockchain.
 
 Le service **docker** s'occupe de run influx.db
-
----
-
-**Prérequis ⚙️ :** 
-- Machine : 1
-- RAM / CPU : 2048 / 1
-- OS : Ubuntu 20.04
-- Stockage : 20GB
-
-**Comment installer la solution 🛠 :**
-
-Vidéo : Coming Soon
-
-
-
-A l'écrit :
-
-1. Installer la machine et avoir un accès ssh root sans mot de passe
-
-Si besoin d'aide : https://askubuntu.com/questions/115151/how-to-set-up-passwordless-ssh-access-for-root-user#:~:text=On%20the%20client%20(where%20you%20ssh%20FROM)&text=When%20you%20are%20prompted%20for,to%20ssh%20into%20the%20server.
-
-2. Installer ansible (par Python conseillé) sur votre machine personnelle (Linux only)
-
-```bash
-pip install ansible
-```
-
-3. Cloner le repo via un terminal de commande sur votre ordinateur
-
-```bash 
-sudo git clone https://github.com/HyouKash/spacecrypto.me.git
-
-OU
-
-wget https://github.com/HyouKash/spacecrypto.me.git
-```
-
-4. Se rendre dans le dossier "ansible" et éditer via un éditeur de texte le fichier hosts.txt afin d'y insérer l'IP de votre machine
-
-5. Lancer le play-book
-
-```bash 
-ansible-playbook -i hosts playbook.yml
-```
-
-**Schéma de l'installation ⏳ :**
-
-<img src="https://cdn.discordapp.com/attachments/497025479233241099/939972398663471164/unknown.png">
-
-
-**Comment l'utiliser 🕹 :**
-
-Voilà vous avez maintenant la solution utilisable à l'adresse : https://localhost:5000
-
-**Monitoring 👨🏼‍💻 :**
-
-Au niveau du monitoring, il se fait via le panel admin de Grafana sans que vous n'ayez rien à toucher, profitez de la simplicité.
-
-Login : 
-
-**Backup 📑 :**
-
-Tout les dossiers et database sont montables depuis le playbook d'ansible
-
-⛔️ Attention, les données liées à la DB des utilisateurs dans dashboardV1.db ne sont pas sauvegardés (Par manque de temps).
-
-Je vous propose tout de même une solution pour les **stocker** et les **sauvegarder** : 
-
-Vous devez ajouter une nouvelle machine qui sera un espace dédié au stockage des sauvegardes dans un disque dur particulier.
-Je propose pour le partage des données le protocole **NFS** : 
-C'est un protocole très simple permettant d'échanger des fichiers entre deux machines.
-
-Veuillez procéder comme ceci 👨‍🏫 : 
-
-Comme dit plus haut installe le serveur de backup avant tout.
-
-- I. Ajout de disque
-- II. Partitioning
-- Partitionner le disque à l'aide de LVM
-- Formater la partition
-- Monter la partition
-- III. Install du serveur NFS + conf (N'oubliez pas de démarrer le service)
-- IV. Faire de même cette fois ci sur le serveur web
-- V. Faites un service qui s'occupera de faire les sauvegardes de manière  régulière et de les envoyer sur votre backup
-
-Je vais pas tout faire pour vous donc tout est expliqué dans les grandes lignes, vous avez un tuto efficace par it4 ici 👇🏻
-
-it4 Gitlab : https://gitlab.com/it4lik/b1-linux-2021/-/tree/master/tp/6
