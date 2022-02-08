@@ -2,8 +2,9 @@
 
 - name: Installation des serveurs web
   hosts: web
-  remote_user: root
-  
+  remote_user: web
+  become: yes
+
   tasks:
 
     - name: Installation de packets
@@ -19,13 +20,7 @@
         - prometheus-node-exporter
         - fail2ban
 
-    - name: Création d'un user
-      user: name=web comment="web user" shell=/usr/bin/zsh 
-    - name: Ajout clé SSH
-      authorized_key: user=web key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-
     - name: Création dossier
-      become: yes
       file: path=/home/web/spacecrypto state=directory owner=web
     - name: Install python module
       pip:
@@ -132,6 +127,10 @@
       ansible.builtin.shell:
         cmd: cd /home/web/spacecrypto/grafana && bash /home/web/spacecrypto/grafana/setup.sh
         
+    - name: Add iptables rules
+      ansible.builtin.shell:
+        cmd: sudo iptables -A INPUT -p tcp --dport 9100 -s localhost -j ACCEPT && sudo iptables -A INPUT -p tcp -m tcp --dport 9100 -j REJECT && sudo iptables -A INPUT -p tcp --dport 9090 -s localhost -j ACCEPT && sudo iptables -A INPUT -p tcp -m tcp --dport 9090 -j REJECT
+
     - name: Fail2ban
       ansible.builtin.shell:
         cmd: cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
