@@ -10,8 +10,7 @@
 **Le site web :**
 
 - Graphique de trading (Style TradingView, hausse/baisse) 🟢
-- Page d'informations sur fees, blockchain, feer and gread -> Mempool (Sur le terrain) 🟠
-- Page d'informations sur les cryptos (projet, évolution du prix, marketcap) 🔴
+- Page d'informations sur blockchain (Sur Grafana) 🟢
 - Système d'alerte si prix hit x $ (choix vers discord ou telegram) 🟢
 - Monitoring de wallet (crypto, levier, price) exemple : cryptomoonitor.io 🟢
 - Possibilité d'ajouter son wallet sur discord via webhook 🟢
