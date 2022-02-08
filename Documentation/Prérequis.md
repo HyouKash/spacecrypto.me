@@ -5,4 +5,4 @@
 - Stockage : 20GB
 - Un user pouvant se sudo : web
 
-➔ [Installation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Installation.md)
+➔ Suite : [Installation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Installation.md)
