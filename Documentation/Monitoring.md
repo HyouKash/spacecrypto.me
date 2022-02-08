@@ -8,6 +8,6 @@ Au niveau du monitoring, il se fait via le panel admin de Grafana sans que vous 
 
 ---
 
-➔ **Suite :** [Backup](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Backup.md)
+**➔ Suite :** [Backup](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Backup.md)
 
 **➔ Informations :** [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
