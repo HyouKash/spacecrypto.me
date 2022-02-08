@@ -8,10 +8,11 @@ A l'écrit :
 
 1. Installer la machine avec les [Prérequis](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Pr%C3%A9requis.md).
 
-2. Créez un utilisateur **web**, choisissez un mot de passe, puis faites entrer à chaque fois.
+2. Créez un utilisateur **web**, choisissez un mot de passe, puis faites entrer à chaque fois. Enfin donnez des permissions à l'utilisateur web.
 
 ```bash
-sudo adduser web
+sudo adduser web 
+sudo usermod -aG sudo web
 ```
 
 3. Copiez votre clé SSH publique ou générez la puis copiez la si vous n'en possédez pas.
