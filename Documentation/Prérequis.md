@@ -7,6 +7,6 @@
 
 ---
 
-➔ Suite : [Installation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Installation.md)
+**➔ Suite :** [Installation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Installation.md)
 
-➔ Informations : [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
+**➔ Informations :** [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
