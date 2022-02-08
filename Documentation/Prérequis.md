@@ -4,3 +4,5 @@
 - OS : Ubuntu 20.04
 - Stockage : 20GB
 - Un user pouvant se sudo : web
+
+➔ [Installation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Installation.md)
