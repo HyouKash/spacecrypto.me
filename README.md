@@ -43,7 +43,7 @@
 
 **[01/02/22]** Ajout des nodes blockchain aux graphiques + création du déploiement de la solution via ansible
 
-**[08/02/22]** Fin de la config ansible avec gestions de permissions clean, documentation terminée, sécurisation des ports -> drop/reject (plus nmappable) sur les port 9100/9090/8333/8086 mais marche sur localhost, changement du port du site web -> 80
+**[08/02/22]** Fin de la config ansible avec gestions de permissions clean, documentation terminée, sécurisation des ports -> drop/reject (plus nmappable) sur les port :9100 :9090 :8333 :8086 mais marche sur localhost, changement du port du site web -> 80
 
 ---
 
