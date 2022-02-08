@@ -16,6 +16,7 @@
 - Possibilité d'ajouter son wallet sur discord via webhook 🟢
 - Monitoring via panel admin Grafana 🟢
 - Déploiement de la solution via ansible 🟢
+- Changer l'image dans prérequis (obsolète) 🔴
 
 **Sécurisation de l'infrastructure :**
 
