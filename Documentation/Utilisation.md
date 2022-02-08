@@ -1,6 +1,6 @@
 **Comment l'utiliser 🕹 :**
 
-1️⃣ Pour se rendre sur le site web : https://localhost:5000
+1️⃣ Pour se rendre sur le site web : https://localhost
 
 - /dashboard
 - /add_crypto
