@@ -61,6 +61,7 @@
       ansible.builtin.service:
         name: bitcoincore
         state: started
+        enabled: yes
         
         
     - name: Création du Service BitcoinCore Scrap
@@ -71,6 +72,7 @@
       ansible.builtin.service:
         name: bitcoinscrap
         state: started
+        enabled: yes
 
     - name: Création du Flask Service
       ansible.builtin.shell:
@@ -80,6 +82,7 @@
       ansible.builtin.service:
         name: flask
         state: started
+        enabled: yes
 
     - name: Création du Price service
       ansible.builtin.shell:
@@ -89,6 +92,7 @@
       ansible.builtin.service:
         name: price
         state: started
+        enabled: yes
 
     - name: Création du docker service
       ansible.builtin.shell:
@@ -98,13 +102,13 @@
       ansible.builtin.service:
         name: influx-docker
         state: started
+        enabled: yes
 
     - name: Installation de Grafana
       ansible.builtin.shell:
         cmd: wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add - && echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 
     - name: Update et upgrade apt packages
-      become: true
       apt:
         upgrade: yes
         update_cache: yes
@@ -118,10 +122,11 @@
       ansible.builtin.service:
         name: grafana-server
         state: started
+        enabled: yes
 
     - name: Change grafana password
       ansible.builtin.shell:
-        cmd: sleep 5 && grafana-cli --homepath "/usr/share/grafana" admin reset-admin-password Tom03042003
+        cmd: sleep 5 && grafana-cli --homepath "/usr/share/grafana" admin reset-admin-password Tom03042003 && sed -i "s/;org_role = Viewer/enabled = true\norg_role = Viewer/g" /etc/grafana/grafana.ini
 
     - name: Connect DB and Import Dashboard
       ansible.builtin.shell:
@@ -138,5 +143,11 @@
     - name: restart fail2ban service
       ansible.builtin.service:
        name: fail2ban
+       state: restarted
+       enabled: yes
+
+    - name: restart grafana service
+      ansible.builtin.service:
+       name: grafana-server
        state: restarted
 ...
