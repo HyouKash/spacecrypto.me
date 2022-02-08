@@ -43,14 +43,13 @@
 
 **[01/02/22]** Ajout des nodes blockchain aux graphiques + création du déploiement de la solution via ansible
 
+**[08/02/22]** Fin de la config ansible avec gestions de permissions clean, documentation terminée, sécurisation des ports -> drop/reject (plus nmappable) sur les port 9100/9090/8333/8086 mais marche sur localhost, changement du port du site web -> 80
 ---
 
 **A venir : ❗️**
 
 - Que du vert partout 🟢
-- Préparation de la documentation
 - Préparation de l'oral
-
 
 # Documentation
 
@@ -66,7 +65,7 @@
 
 [V. Backup](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Backup.md)
 
-**Liste de tout ce qui marche 📝:**
+**Liste de tout ce qui marche 📝 :**
 
 - Site web utilisable
 - Monitoring de wallet via API
@@ -81,7 +80,7 @@
 - Database fonctionnelle 
 - HTTPS fonctionel
 
-***Informations complémentaires :***
+***Informations complémentaires ⛔️ :***
 
 Le service **price** s'occupe de récupérer le prix du bitcoin afin de le mettre dans influx-db puis de l'afficher directement dans un graphique via Grafana.
 
