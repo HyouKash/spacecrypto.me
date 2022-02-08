@@ -55,6 +55,6 @@ BECOME password:
 ```
 ---
 
-➔ Suite : [Utilisation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Utilisation.md)
+**➔ Suite :** [Utilisation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Utilisation.md)
 
-➔ Informations : [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
+**➔ Informations :** [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
