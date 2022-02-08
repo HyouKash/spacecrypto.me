@@ -11,6 +11,6 @@
 
 ---
 
-➔ Suite : [Monitoring](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Monitoring.md)
+**➔ Suite :** [Monitoring](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Monitoring.md)
 
-➔ Informations : [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
+**➔ Informations :** [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
