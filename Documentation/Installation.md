@@ -53,3 +53,6 @@ IP ICI
 ansible-playbook -i hosts playbook.yml -K
 BECOME password:
 ```
+➔ Suite : [Utilisation](https://github.com/HyouKash/spacecrypto.me/blob/main/Documentation/Utilisation.md)
+
+➔ Informations : [README](https://github.com/HyouKash/spacecrypto.me/blob/main/README.md)
