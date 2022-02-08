@@ -12,16 +12,16 @@ C'est un protocole très simple permettant d'échanger des fichiers entre deux m
 
 Veuillez procéder comme ceci 👨‍🏫 : 
 
-Comme dit plus haut installe le serveur de backup avant tout.
+Comme dit plus haut installez le serveur de backup avant tout, c'est un serveur de stockage donc allez y sur les Gb.
 
-- 1. Ajout de disque
-- 2. Partitioning
+- I. Ajout de disque
+- II. Partitioning
 - Partitionner le disque à l'aide de LVM
 - Formater la partition
 - Monter la partition
-- 3. Install du serveur NFS + conf (N'oubliez pas de démarrer le service)
-- 4. Faire de même cette fois ci sur le serveur web
-- 5. Faites un service qui s'occupera de faire les sauvegardes de manière  régulière et de les envoyer sur votre backup
+- III. Install du serveur NFS + conf (N'oubliez pas de démarrer le service)
+- IV. Faire de même cette fois ci sur le serveur web
+- V. Faites un service qui s'occupera de faire les sauvegardes de manière  régulière et de les envoyer sur votre backup
 
 Je vais pas tout faire pour vous donc tout est expliqué dans les grandes lignes, vous avez un tuto efficace par it4 ici 👉🏼 [it4 Gitlab](https://gitlab.com/it4lik/b1-linux-2021/-/tree/master/tp/6)
 
