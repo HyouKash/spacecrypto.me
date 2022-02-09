@@ -13,7 +13,7 @@
 - Page d'informations sur blockchain (Sur Grafana) 🟢
 - Système d'alerte si prix hit x $ (choix vers discord ou telegram) 🟢
 - Monitoring de wallet (crypto, levier, price) exemple : cryptomoonitor.io 🟢
-- Possibilité d'ajouter son wallet sur discord via webhook 🟢
+- Possibilité d'ajouter son wallet sur discord via webhook 🟠 (run le script webhook dans un service)
 - Monitoring via panel admin Grafana 🟢
 - Déploiement de la solution via ansible 🟢
 - Changer l'image dans prérequis (obsolète) 🔴
