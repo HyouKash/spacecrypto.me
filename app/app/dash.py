@@ -9,15 +9,24 @@ import base64
 
 lower = string.ascii_letters + string.digits
 
-@app.route("/dashboard")
+@app.route("/dashboard", methods=["GET", "POST"])
 def dash():
     user_id = request.cookies.get('user')
     if user_id:
-        con = sqlite3.connect('/home/web/spacecrypto/app/app/dashboardV1.db')
+        con = sqlite3.connect('app/dashboardV1.db')
         cur = con.cursor()
         cur.execute(f'''SELECT * from Cryptos where ID = "{user_id}"''')
         data = cur.fetchall()[0]
         con.close()
+        if request.method == "POST":
+            req = request.form
+
+            rep = f"{req.get('webhook')}"
+            con = sqlite3.connect('app/dashboardV1.db')
+            cur = con.cursor()
+            cur.execute(f'''UPDATE Cryptos SET webhook = "{rep}" WHERE ID = "{user_id}"''')
+            con.commit()
+            con.close()
         crypto_list = []
         for k in range(len(data)):
             if k == 0 or data[k] == None or data[k] == "":
@@ -33,10 +42,10 @@ def dash():
         cookie = "".join([random.choice(lower) for _ in  range(50)])
         m.update(cookie.encode("UTF-8"))
         cookie = base64.b64encode(m.hexdigest().encode())
-        data = (cookie.decode(), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+        data = (cookie.decode(), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
         con = sqlite3.connect('app/dashboardV1.db')
         cur = con.cursor()
-        cur.execute('''INSERT INTO Cryptos VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',data)
+        cur.execute('''INSERT INTO Cryptos VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',data)
         con.commit()
         con.close()
         resp = make_response(render_template('dashboard.html'))
