@@ -78,13 +78,14 @@ Nothing..
 - Monitoring du serveur web via Grafana
 - Système d'alerte via Grafana
 - Solution déployable grâce à Ansible
-- Site web sécurisé par CloudFlare
+- Site web sécurisé par CloudFlare 💤 
 - Fail2ban sur l'accès SSH du serveur web
 - Port sécurisé (Iptable)
 - Serveur web sécurisé
 - 4 services : Prix du Bitcoin, Serveur web, BitcoinCore et docker
 - Database fonctionnelle 
 - HTTPS fonctionel
+- Blockchain fonctionnel (Possibilité d'avoir toutes les métrics bitcoin)
 
 **Informations complémentaires ⛔️ :**
 
