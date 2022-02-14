@@ -7,6 +7,8 @@
 
 🔴 = Pas commencé
 
+💤 = Big flemme
+
 **Le site web :**
 
 - Graphique de trading (Style TradingView, hausse/baisse) 🟢
@@ -24,7 +26,7 @@
 
 ➜ HTTP -> HTTPS 🟢
 
-➜ Cloudflare (crois le)
+➜ Cloudflare 💤 
 
 ➜ Déploiement sécurisé de la solution via ansible 🟢
 
