@@ -84,9 +84,19 @@
         state: started
         enabled: yes
 
+    - name: Création du webhook service
+      ansible.builtin.shell:
+        cmd: echo "[Unit]\nDescription=Discord Webhook\nAfter=network-online.target\n\n[Service]\nType=simple\n\nExecStart=/usr/bin/python3 /home/web/spacecrypto/app/app/webhook.py\n\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/webhook.service
+
+    - name: Lancement du webhook Service
+      ansible.builtin.service:
+        name: webhook
+        state: started
+        enabled: yes
+
     - name: Création du Price service
       ansible.builtin.shell:
-        cmd: echo "[Unit]\nDescription=Scrao Bitcoin Price\nAfter=network-online.target\n\n[Service]\nType=simple\n\nExecStart=/usr/bin/python3 /home/web/spacecrypto/Scrap.py\n\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/price.service
+        cmd: echo "[Unit]\nDescription=Scrap Bitcoin Price\nAfter=network-online.target\n\n[Service]\nType=simple\n\nExecStart=/usr/bin/python3 /home/web/spacecrypto/Scrap.py\n\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/price.service
 
     - name: Lancement du price service
       ansible.builtin.service:
@@ -132,9 +142,24 @@
       ansible.builtin.shell:
         cmd: cd /home/web/spacecrypto/grafana && bash /home/web/spacecrypto/grafana/setup.sh
         
-    - name: Add iptables rules
-      ansible.builtin.shell:
-        cmd: sudo iptables -A INPUT -p tcp --dport 9100 -s localhost -j ACCEPT && sudo iptables -A INPUT -p tcp -m tcp --dport 9100 -j REJECT && sudo iptables -A INPUT -p tcp --dport 9090 -s localhost -j ACCEPT && sudo iptables -A INPUT -p tcp -m tcp --dport 9090 -j REJECT
+    - name: Iptables config
+      ansible.builtin.iptables:
+        chain: INPUT
+        protocol: tcp
+        destination_ports: 
+          - 9100
+          - 9090
+        source: localhost
+        jump: ACCEPT
+
+    - name: Iptables config        
+      ansible.builtin.iptables:
+        chain: INPUT     
+        protocol: tcp
+        destination_ports:     
+          - 9100
+          - 9090
+        jump: REJECT
 
     - name: Fail2ban
       ansible.builtin.shell:
