@@ -13,7 +13,7 @@ sudo adduser web
 sudo usermod -aG sudo web
 ```
 
-3. Copiez votre clé SSH publique ou générez la puis copiez la si vous n'en possédez pas.
+3. Copiez votre clé SSH publique ou générez la puis copiez la si vous n'en possédez pas. (sur votre machine personnelle)
 
 ```bash 
 ssh-keygen -t rsa
