@@ -7,7 +7,7 @@
 
 **Schéma de l'installation ⏳ :**
 
-<img src="https://cdn.discordapp.com/attachments/497025479233241099/939972398663471164/unknown.png">
+<img src="https://cdn.discordapp.com/attachments/490294801506369558/942852867394506782/unknown.png">
 
 ---
 
