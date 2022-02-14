@@ -13,7 +13,7 @@
 - Page d'informations sur blockchain (Sur Grafana) 🟢
 - Système d'alerte si prix hit x $ (choix vers discord ou telegram) 🟢
 - Monitoring de wallet (crypto, levier, price) exemple : cryptomoonitor.io 🟢
-- Possibilité d'ajouter son wallet sur discord via webhook 🟠 (run le script webhook dans un service)
+- Possibilité d'ajouter son wallet sur discord via webhook 🟢 
 - Monitoring via panel admin Grafana 🟢
 - Déploiement de la solution via ansible 🟢
 - Changer l'image dans prérequis (obsolète) 🔴
@@ -22,9 +22,9 @@
 
 ➜ Sécuriser les ports (iptable) 🟢
 
-➜ HTTP -> HTTPS w/Certbot 🔴
+➜ HTTP -> HTTPS 🟢
 
-➜ Cloudflare 🔴
+➜ Cloudflare (crois le)
 
 ➜ Déploiement sécurisé de la solution via ansible 🟢
 
@@ -46,12 +46,13 @@
 
 **[08/02/22]** Fin de la config ansible avec gestions de permissions clean, documentation terminée, sécurisation des ports -> drop/reject (plus nmappable) sur les port :9100 :9090 :8333 :8086 mais marche sur localhost, changement du port du site web -> 80
 
+**[15/02/22]** Tout est fini bien joué à tous.
+
 ---
 
 **A venir : ❗️**
 
-- Que du vert partout 🟢
-- Préparation de l'oral
+Nothing..
 
 # Documentation
 
