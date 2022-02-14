@@ -13,7 +13,7 @@ lower = string.ascii_letters + string.digits
 def add_crypto():
     user_id = request.cookies.get('user')
     if user_id:
-        con = sqlite3.connect('/home/web/spacecrypto/app/app/dashboardV1.db')
+        con = sqlite3.connect('app/dashboardV1.db')
         cur = con.cursor()
         cur.execute(f'''SELECT * from Cryptos where ID = "{user_id}"''')
         data = cur.fetchall()[0]
@@ -24,7 +24,7 @@ def add_crypto():
             
             rep = f"{req.get('crypto')}" + "|" + f"{req.get('amount')}" + "|" + f"{req.get('levarage')}" + "|" + f"{req.get('price')}"
             crypto = rep.split("|")[0]
-            con = sqlite3.connect('app/dashboardV1.db')
+            con = sqlite3.connect('/home/web/spacecrypto/app/app/dashboardV1.db')
             cur = con.cursor()
             cur.execute(f'''UPDATE Cryptos SET {crypto} = "{rep}" WHERE ID = "{user_id}"''')
             con.commit()
@@ -35,10 +35,10 @@ def add_crypto():
         cookie = "".join([random.choice(lower) for _ in  range(50)])
         m.update(cookie.encode("UTF-8"))
         cookie = base64.b64encode(m.hexdigest().encode())
-        data = (cookie.decode(), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
-        con = sqlite3.connect('app/dashboardV1.db')
+        data = (cookie.decode(), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","")
+        con = sqlite3.connect('/home/web/spacecrypto/app/app/dashboardV1.db')
         cur = con.cursor()
-        cur.execute('''INSERT INTO Cryptos VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',data)
+        cur.execute('''INSERT INTO Cryptos VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',data)
         con.commit()
         con.close()
         resp = make_response(render_template('dashboard.html'))
