@@ -1,8 +1,6 @@
 **Comment installer la solution 🛠 :**
 
-Vidéo : Coming Soon
-
-
+Vidéo : [![Tuto](https://res.cloudinary.com/marcomontalbano/image/upload/v1644863801/video_to_markdown/images/youtube--WZMv_D1H8FQ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=WZMv_D1H8FQ "Tuto")
 
 A l'écrit :
 
