@@ -7,8 +7,6 @@
 
 🔴 = Pas commencé
 
-💤 = Big flemme
-
 **Le site web :**
 
 - Graphique de trading (Style TradingView, hausse/baisse) 🟢
@@ -25,7 +23,7 @@
 
 ➜ HTTP -> HTTPS 🟢
 
-➜ Cloudflare 💤 
+➜ Cloudflare 🟢 
 
 ➜ Déploiement sécurisé de la solution via ansible 🟢
 
@@ -77,7 +75,7 @@ Nothing..
 - Monitoring du serveur web via Grafana
 - Système d'alerte via Grafana
 - Solution déployable grâce à Ansible
-- Site web sécurisé par CloudFlare 💤 
+- Site web sécurisé par CloudFlare
 - Fail2ban sur l'accès SSH du serveur web
 - Port sécurisé (Iptable)
 - Serveur web sécurisé
